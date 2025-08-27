@@ -614,7 +614,7 @@ button{
     
 }
 button:hover{
-    background-color: aqua;
+    background-color: rgba(2, 2, 2, 0.177);
     cursor:pointer;
 }
 .resultado{

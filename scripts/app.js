@@ -27,9 +27,7 @@ function buscarPersonaje() {
                         <div class="card">
                             <img src="${daticos[i]["#IMG_POSTER"]}" alt="">
                             <h3>${daticos[i]["#TITLE"]}</h3>
-                        </div>`
-                        
-                        
+                        </div>` 
                     };
                 }
             }
@@ -43,3 +41,6 @@ function buscarPersonaje() {
     };
 
 buscarPersonaje();
+
+
+
