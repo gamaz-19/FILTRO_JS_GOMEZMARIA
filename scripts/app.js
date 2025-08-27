@@ -2,7 +2,7 @@ function buscarPersonaje() {
     document.getElementById("resultados").innerHTML=``;
     const nombreUsar = document.getElementById("nombreInput").value.trim();
     const xhr = new XMLHttpRequest();
-    const url = `https://rickandmortyapi.com/api/character?name=${nombreUsar}`
+    const url = `https://imdb.iamidiotareyoutoo.com/search?q=${nombreUsar}&tt`
     console.log(url);
     xhr.open("GET", url, true);
 
@@ -20,10 +20,10 @@ function buscarPersonaje() {
                         let division = document.getElementById("resultados");
                         division.innerHTML+= `
                         <div class="card">
-                            <img src="${data["results"][i]["image"]}" alt="">
-                            <h3>${data["results"][i]["name"]}</h3>
-                            <p><strong>Status:</strong>${data["results"][i]["status"]}</p>
-                            <p><strong>Species:</strong>${data["results"][i]["species"]}</p>
+                            <img src="${data["description"][i]["#IMG_POSTER"]}" alt="">
+                            <h3>${data["description"][i]["name"]}</h3>
+                            <p><strong>Status:</strong>${data["description"][i]["#TITLE"]}</p>
+                            <p><strong>Species:</strong>${data["description"][i]["species"]}</p>
                         </div>`
                         console.log(data)
                     };
