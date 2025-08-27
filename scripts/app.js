@@ -1,8 +1,8 @@
 function buscarPersonaje() {
-    document.getElementById("resultados").innerHTML=``;
+    document.getElementById("resultados").innerHTML = ``;
     const nombreUsar = document.getElementById("nombreInput").value.trim();
     const xhr = new XMLHttpRequest();
-    const url = `https://imdb.iamidiotareyoutoo.com/search?q=${nombreUsar}&tt`
+    const url = `https://imdb.iamidiotareyoutoo.com/search?q=${nombreUsar}`
     console.log(url);
     xhr.open("GET", url, true);
 
@@ -15,24 +15,31 @@ function buscarPersonaje() {
             try {
 
                 let data = JSON.parse(xhr.responseText);
-                if (data.results && data.results.length > 0) {
-                    for (let i = 0; i < data.results.length; i++) {
-                        let division = document.getElementById("resultados");
-                        division.innerHTML+= `
+                console.log(data);
+                console.log("holi")
+                if (data) {
+                    
+                    let daticos = data.description;
+                    for (let i = 0; i < daticos.length; i++) {
+                        let div = document.getElementById("resultados");
+                        console.log(daticos,"holi");
+                        div.innerHTML+= `
                         <div class="card">
-                            <img src="${data["description"][i]["#IMG_POSTER"]}" alt="">
-                            <h3>${data["description"][i]["name"]}</h3>
-                            <p><strong>Status:</strong>${data["description"][i]["#TITLE"]}</p>
-                            <p><strong>Species:</strong>${data["description"][i]["species"]}</p>
+                            <img src="${daticos[i]["#IMG_POSTER"]}" alt="">
+                            <h3>${daticos[i]["#TITLE"]}</h3>
                         </div>`
-                        console.log(data)
+                        
+                        
                     };
                 }
-                }
-                catch(err){
-                    alert("no ")
-                }
             }
+            catch (err) {
+                alert("no")
+            }
+        } 
+        
         };
         xhr.send();
-    }
+    };
+
+buscarPersonaje();
